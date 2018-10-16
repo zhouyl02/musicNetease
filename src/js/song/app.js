@@ -3,10 +3,11 @@
     el: '#app',
     init(){
       this.$el = $(this.el)
+      this.$elb = $("#appCover")
     },
     render(data){
       let {song, status} = data
-      this.$el.css('background-image', `url(${song.cover})`)
+      this.$elb.css('background', `transparent url(${song.cover}) no-repeat center`)     
       this.$el.find('img.cover').attr('src', song.cover)
       if(this.$el.find('audio').attr('src') !== song.url){
         let audio = this.$el.find('audio').attr('src', song.url).get(0)
